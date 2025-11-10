@@ -267,7 +267,13 @@ Examples:
     }
 
     # Convert to each requested format
-    kwargs = vars(args)
+    # Prepare kwargs, excluding parameters we pass explicitly
+    kwargs = vars(args).copy()
+    for key in ['model', 'output', 'output_dir', 'format', 'pretrained',
+                'checkpoint', 'num_classes', 'reparam', 'img_size',
+                'input_size', 'batch_size']:
+        kwargs.pop(key, None)
+
     success_count = 0
     fail_count = 0
 

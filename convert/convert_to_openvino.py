@@ -61,6 +61,10 @@ def openvino_export(
 
     # Convert to OpenVINO IR
     try:
+        # Ensure output file has .xml extension
+        if not output_file.endswith('.xml'):
+            output_file = f"{output_file}.xml"
+
         # Direct conversion from PyTorch
         print("Converting PyTorch model to OpenVINO IR...")
         ov_model = ov.convert_model(
