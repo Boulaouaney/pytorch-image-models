@@ -118,5 +118,8 @@ Testing notebook.ipynb
 /*.jpg
 /*.png
 /*.zip
-/*.tar.*uv.lock
+/*.tar.*
+
+# UV package manager
+uv.lock
 .venv/
